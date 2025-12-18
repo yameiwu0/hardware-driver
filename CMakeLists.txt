@@ -43,6 +43,7 @@ add_library(hardware_driver_canfd SHARED
   src/driver/motor_driver_impl.cpp
   src/driver/gripper_driver_impl.cpp
   src/driver/button_driver_impl.cpp
+  src/driver/button_event_handler.cpp
   src/protocol/motor_protocol.cpp
   src/protocol/gripper_omnipicker_protocol.cpp
   src/protocol/iap_protocol.cpp

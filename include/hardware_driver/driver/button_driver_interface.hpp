@@ -31,6 +31,22 @@ enum class ButtonStatus : uint8_t {
     TEACH_REPEAT = 3,  ///< 轨迹复现 (双击)
 };
 
+/// 控制器切换命令
+enum class ControllerCommand : uint8_t {
+    START_RECORD = 1,   ///< 开始录制 (进入示教)
+    STOP_RECORD = 2,    ///< 停止录制 (退出示教)
+    START_REPLAY = 3,   ///< 开始复现
+};
+
+/// 控制器切换回调类型
+using ControllerSwitchCallback = std::function<bool(
+    ControllerCommand command,
+    const std::string& trajectory_name
+)>;
+
+/// 复现完成回调类型
+using ReplayCompleteCallback = std::function<void(const std::string& interface)>;
+
 /// 按键事件观察者接口
 class ButtonEventObserver {
 public:
